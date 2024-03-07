@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import './App.css'
-import CardCustom from './components/CardCustom'
+import { useState } from 'react';
+import './App.css';
+import CardCustom from './components/CardCustom';
 
 function App() {
   return (
-    <>
-      <CardCustom/>
-    </>
-  )
+    <div className='container'>
+      <CardCustom />
+    </div>
+  );
 }
 
-export default App
+export default App;

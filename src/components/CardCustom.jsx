@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/cardCustom.css';
 import Task from './Task';
+import { FormControl, FormGroup } from 'react-bootstrap';
 
 const CardCustom = () => {
   const [tarea, setTarea] = useState([]);
@@ -30,22 +31,45 @@ const CardCustom = () => {
     setTarea(tareaAUX);
   };
   return (
-    <div className='d-flex justify-content-center align-items-center min-vh-100'>
-      <div className='content p-5'>
-        <div className='text-center'>
-          <h1 className='fs-1'>Bienvenido</h1>
-          <h3 className='fs-5'>Ingresa tus tareas</h3>
-          <input type='text' placeholder='Tarea 1...' onKeyDown={onKeyEnter} />
-        </div>
-        <div>
-          <ul>
-            {tarea.map((element) => (
-              <Task task={element} key={element.id} deleteElement={deleteElement}/>
-            ))}
-          </ul>
-        </div>
+    <div className='principalContainer'>
+      <div className='textContainer'>
+        <h1>Bienvenido</h1>
+        <p>
+          Ingrese sus tareas pendientes. para cargar una tarea, ingrese el
+          nombre de la tarea y presione enter
+        </p>
+      </div>
+      <div className='formContainer'>
+        <FormGroup>
+          <FormControl
+            type='text'
+            placeholder='Nombre de la tarea'
+            onKeyDown={onKeyEnter}
+          />
+        </FormGroup>
       </div>
     </div>
+    // <div className='d-flex justify-content-center align-items-center flex-column min-vh-100'>
+    //   <h1>Bienvenido</h1>
+    //   <div className='content p-5'>
+    //     <div className='text-center'>
+    //       <h1 className='fs-1'>Bienvenido</h1>
+    //       <h3 className='fs-5'>Ingresa tus tareas</h3>
+    //       <input type='text' placeholder='Tarea 1...' onKeyDown={onKeyEnter} />
+    //     </div>
+    //     <div>
+    //       <ul>
+    //         {tarea.map((element) => (
+    //           <Task
+    //             task={element}
+    //             key={element.id}
+    //             deleteElement={deleteElement}
+    //           />
+    //         ))}
+    //       </ul>
+    //     </div>
+    //   </div>
+    // </div>
   );
 };
 
